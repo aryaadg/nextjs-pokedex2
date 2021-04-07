@@ -51,35 +51,39 @@ function Detail({ data }) {
 		<div>
             {/* Ganti judul page sesuai nama pokemon */}
           
+            <div className="uk-flex-center">
+                <img src={data.sprites.front_default} width="100%"/>
+            </div>
 
-			<div className="relative bg-white overflow-hidden">
-				<div className="max-w-7xl mx-auto mt-10 mb-10">
+
+			<div className="uk-card">
+				<div className="uk-card">
                     
-                    <div className="relative bg-white dark:bg-gray-800 p-4">
-                        <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-12 lg:items-center">
-                            <div className="lg:col-start-2 md:pl-20">
-                                <p className="text-indigo-500 text-md font-medium capitalize">
+                    <div className="uk-default">
+                        <div className="uk-item-center">
+                            <div className="uk-default">
+                                <p className="uk-text-capitalize">
                                     {data.types.map(({ type, slot }) => (
                                         <span key={slot}>{type.name} {typesLength === slot ? "" : ' - '}</span>
                                     ))}
                                 </p>
-                                <h4 className="text-2xl leading-8 font-extrabold text-gray-900 dark:text-white tracking-tight sm:leading-9 capitalize">
+                                <h4 className="uk-text-center uk-text-capitalize">
                                     {data.name}
                                 </h4>
-                                <ul className="mt-10">
+                                <ul className="uk-list">
                                     {data.stats.map(({ stat, base_stat }) => (
-                                    <li key={stat.name} className="mb-6">
+                                    <li key={stat.name} className="true">
                                         <div className="flex">
-                                            <div className="flex-shrink-0">
-                                                <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                                            <div className="uk-flex">
+                                                <div className="uk-media-center">
                                                     {Icon(stat.name)}
                                                 </div>
                                             </div>
-                                            <div className="ml-4">
-                                                <h5 className="text-lg leading-4 text-gray-900 dark:text-white font-bold capitalize">
+                                            <div className="uk-flex">
+                                                <h5 className="uk-text-capitalize uk-text-center">
                                                     {stat.name}
                                                 </h5>
-                                                <p className="mt-2 text-base leading-3 text-gray-500 dark:text-gray-300">
+                                                <p className="uk-text-capitalize uk-text-center">
                                                     {base_stat}
                                                 </p>
                                             </div>
@@ -87,9 +91,6 @@ function Detail({ data }) {
                                     </li>
                                     ))}
                                 </ul>
-                            </div>
-                            <div className="mt-10 -mx-4 md:-mx-12 relative lg:mt-0 lg:col-start-1">
-                                <img src={data.sprites.front_default} alt="illustration" className="relative mx-auto shadow-lg rounded w-80"/>
                             </div>
                         </div>
                     </div>
